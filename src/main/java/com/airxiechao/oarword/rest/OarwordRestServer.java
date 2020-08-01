@@ -4,6 +4,7 @@ import com.airxiechao.axcboot.communication.rest.security.AuthPrincipal;
 import com.airxiechao.axcboot.communication.rest.server.RestServer;
 import com.airxiechao.oarword.OarwordConfig;
 import com.airxiechao.oarword.doc.DocRestHandler;
+import io.undertow.UndertowOptions;
 import io.undertow.server.HttpServerExchange;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +21,9 @@ public class OarwordRestServer {
     private OarwordRestServer(){
         this.port = OarwordConfig.getRestServerPort();
         String basePath = OarwordConfig.getRestServerBasePath();
-        this.restServer = new RestServer("0.0.0.0", this.port, basePath, this::hasRole);
+        this.restServer = new RestServer("0.0.0.0", this.port, basePath, (builder)->{
+            builder.setServerOption(UndertowOptions.MAX_ENTITY_SIZE, 1024*1024L);
+        }, this::hasRole);
 
         this.register();
     }
