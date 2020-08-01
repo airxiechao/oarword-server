@@ -1,0 +1,36 @@
+{
+    "type": "body",
+    "grid": {
+        "pageWidth": 800,
+        "pageHeight": 1131.370849898476,
+        "pageSpacingHeight": 5,
+        "marginTop": 100,
+        "marginRight": 100,
+        "marginBottom": 100,
+        "marginLeft": 100
+    },
+    "pts": [
+        {
+            "type": "para",
+            "paraStyle": {
+                "textAlign": "left"
+            },
+            "runs": [
+                {
+                    "type": "text",
+                    "text": "",
+                    "textStyle": {
+                        "fontFamily": "宋体",
+                        "fontSize": 14,
+                        "color": "#000",
+                        "backgroundColor": "unset",
+                        "fontWeight": "unset",
+                        "fontStyle": "unset",
+                        "textDecoration": "unset",
+                        "verticalAlign": "unset"
+                    }
+                }
+            ]
+        }
+    ]
+}

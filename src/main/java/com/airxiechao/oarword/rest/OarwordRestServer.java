@@ -3,6 +3,7 @@ package com.airxiechao.oarword.rest;
 import com.airxiechao.axcboot.communication.rest.security.AuthPrincipal;
 import com.airxiechao.axcboot.communication.rest.server.RestServer;
 import com.airxiechao.oarword.OarwordConfig;
+import com.airxiechao.oarword.doc.DocRestHandler;
 import io.undertow.server.HttpServerExchange;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -42,6 +43,10 @@ public class OarwordRestServer {
      * 注册rest处理器
      */
     private void register(){
+
+        // 注册doc处理器
+        restServer.registerHandler(DocRestHandler.class);
+
         // 注册ui页面
         String uiDir = OarwordConfig.getRestServerUiDir();
         restServer.registerStatic("ui", uiDir, null, null, null);
